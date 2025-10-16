@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tablero de Puntos - DOM y JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <style>
+        .equipo-nombre {
+            cursor: pointer;
+            user-select: none;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .color-picker {
+            width: 100%;
+            height: 2rem;
+            border: none;
+            padding: 0;
+            margin-top: 0.25rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-1 my-sm-2 my-md-4 my-lg-5">
+        <h1>Tablero de Puntos</h1>
+        <div class="card p-3">
+            <div class="row text-center align-items-center mb-3">
+                <div class="col-5">
+                    <div contenteditable="true" id="nombre-local" class="equipo-nombre" aria-label="Nombre equipo local" spellcheck="false">Local</div>
+                    <span id="puntos-local" class="display-1">0</span>
+                </div>
+                <div class="col-2 display-1">:</div>
+                <div class="col-5">
+                    <div contenteditable="true" id="nombre-visitante" class="equipo-nombre" aria-label="Nombre equipo visitante" spellcheck="false">Visitante</div>
+                    <span id="puntos-visitante" class="display-1">0</span>
+                </div>
+            </div>
+
+            <hr class="hr" />
+
+            <h2>Actualizar Contador</h2>
+            <div class="row g-2 mb-3">
+                <div class="col-6 col-sm-3">
+                    <button id="btn-local-mas" class="btn w-100 btn-primary" aria-label="Sumar punto equipo local">+ Punto Local</button>
+                </div>
+                <div class="col-6 col-sm-3">
+                    <button id="btn-local-menos" class="btn w-100 btn-secondary" aria-label="Restar punto equipo local">- Punto Local</button>
+                </div>
+                <div class="col-6 col-sm-3">
+                    <button id="btn-visitante-mas" class="btn w-100 btn-primary" aria-label="Sumar punto equipo visitante">+ Punto Visitante</button>
+                </div>
+                <div class="col-6 col-sm-3">
+                    <button id="btn-visitante-menos" class="btn w-100 btn-secondary" aria-label="Restar punto equipo visitante">- Punto Visitante</button>
+                </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+                <div class="col-12 col-sm-4">
+                    <button id="btn-invertir" class="btn w-100 btn-info" aria-label="Invertir puntajes">Invertir Puntajes</button>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <button id="btn-finalizar" class="btn w-100 btn-warning" aria-pressed="false" aria-label="Finalizar partido">Finalizar Partido</button>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <button id="btn-reiniciar" class="btn w-100 btn-danger" aria-label="Reiniciar tablero">Reiniciar</button>
+                </div>
+            </div>
+
+            <hr />
+
+            <h2>Personalización de Colores</h2>
+            <div class="row g-3">
+                <div class="col-12 col-sm-4">
+                    <label for="color-fondo" class="form-label">Color de Fondo</label>
+                    <input type="color" id="color-fondo" class="form-control form-control-color" value="#ffffff" title="Color de fondo" aria-label="Color de fondo" />
+                </div>
+                <div class="col-12 col-sm-4">
+                    <label for="color-local" class="form-label">Color Equipo Local</label>
+                    <input type="color" id="color-local" class="form-control form-control-color" value="#0d6efd" title="Color equipo local" aria-label="Color equipo local" />
+                </div>
+                <div class="col-12 col-sm-4">
+                    <label for="color-visitante" class="form-label">Color Equipo Visitante</label>
+                    <input type="color" id="color-visitante" class="form-control form-control-color" value="#0d6efd" title="Color equipo visitante" aria-label="Color equipo visitante" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="tablero-puntos.js"></script>
+</body>
+</html>

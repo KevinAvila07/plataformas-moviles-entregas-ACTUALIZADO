@@ -1,0 +1,45 @@
+/* 1. Centrar el título <h1> (sobrescribe h1 { text-align: left; } con mayor especificidad: ID + tipo) */
+article#contenedor h1 {
+    text-align: center;
+}
+
+/* 2. Fuente serif para todos los párrafos (sobrescribe p { font-family: sans-serif; } con mayor especificidad: body + tipo) */
+body p {
+    font-family: serif;
+}
+
+/* 3. Fondo #CEE para #primer-parrafo (sobrescribe #primer-parrafo { background-color: #eec; } con mayor especificidad: ID + clases + tipo) */
+article#contenedor p#primer-parrafo.importante.parrafo {
+    background-color: #CEE;
+}
+
+/* 4. Color #933 para <em> del primer párrafo (mayor especificidad que p.importante em: ID + tipo > clase + tipo) */
+#primer-parrafo em {
+    color: #933;
+}
+
+/* 5. Outline para todos los links (sobrescribe p.novelas a { outline: none; } con selector universal para a, pero para mayor precisión usamos body a) */
+body a {
+    outline: 1px solid #333;
+}
+
+/* 6. Opacidad 100% para p.fuente (sobrescribe body p.fuente.parrafo { opacity: 75%; } con igual especificidad pero orden de carga; para asegurar, usamos selector idéntico con mayor contexto) */
+body article + p.fuente.parrafo {
+    opacity: 1;
+}
+
+/* 7. Sin sombra para párrafos sin ID (usa :not() para especificidad selectiva en p sin #primer-parrafo) */
+p:not(#primer-parrafo) {
+    text-shadow: none;
+}
+
+/* BONUS 1: Color #000 para p.fuente (sobrescribe color: #999 !important; solo posible con !important y selector de igual o mayor especificidad) */
+body p.fuente.parrafo {
+    color: #000 !important;
+}
+
+/* BONUS 2: Negrita y color #C62 para .complicado (sobrescribe inline style="color: #622" solo posible con !important) */
+.complicado {
+    font-weight: bold;
+    color: #C62 !important;
+}

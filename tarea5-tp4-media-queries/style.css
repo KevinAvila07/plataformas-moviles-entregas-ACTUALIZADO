@@ -1,0 +1,76 @@
+/* Archivo: /tp-4/style.css */
+
+/* Reset y estilos base (ya definidos en <style> interno, no repetir aquí) */
+
+/* 1. Fondo body rgb(40,60,80) si ancho > 400px */
+@media (min-width: 401px) {
+  body {
+    background-color: rgb(40, 60, 80);
+  }
+}
+
+/* 2. Centrar h1 si ancho < 800px */
+@media (max-width: 799px) {
+  h1 {
+    text-align: center;
+  }
+}
+
+/* 3. max-width article 50ch si pantalla en horizontal (landscape) */
+@media (orientation: landscape) {
+  article {
+    max-width: 50ch;
+  }
+}
+
+/* 4. Cambiar fondo h1 si alto pantalla >= 200px */
+@media (min-height: 200px) {
+  h1 {
+    background-color: #445566; /* color de fondo para h1, ejemplo */
+  }
+}
+
+/* 5. Fuente serif para todos los párrafos al imprimir */
+@media print {
+  p {
+    font-family: serif;
+  }
+}
+
+/* 6. Si usuario prefiere colores claros, body y h1 texto #111 y fondo #DDD */
+@media (prefers-color-scheme: light) {
+  body, h1 {
+    color: #111;
+    background-color: #DDD;
+  }
+}
+
+/* 7. Si dispositivo es pantalla y no soporta hover, links con fondo #212 y padding vertical 2px, horizontal 5px */
+@media (hover: none) and (pointer: coarse) and (any-pointer: coarse) and (any-hover: none) and (pointer: coarse), screen and (hover: none) {
+  a {
+    background-color: #212;
+    padding: 2px 5px;
+  }
+}
+
+/* 8. Si dispositivo es pantalla y ancho entre 800px y 899px, ocultar imagen */
+@media screen and (min-width: 800px) and (max-width: 899px) {
+  img {
+    display: none;
+  }
+}
+
+/* 9. Si dispositivo es pantalla y ancho entre 200px y 400px, imagen alto 400px y object-fit: cover */
+@media screen and (min-width: 200px) and (max-width: 400px) {
+  img {
+    height: 400px;
+    object-fit: cover;
+  }
+}
+
+/* 10. Si device pixel ratio > 2, cambiar fondo article a #667 */
+@media (resolution: 2.1dppx), (min-resolution: 2.1dppx) {
+  article {
+    background-color: #667;
+  }
+}
